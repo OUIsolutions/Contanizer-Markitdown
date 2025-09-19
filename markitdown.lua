@@ -1,5 +1,4 @@
 local action = argv.get_next_unused()
-print("Action: " .. (action or "none"))
 if action == "set_provider" then
     local provider = argv.get_next_unused()
     if not provider or (provider ~= "docker" and provider ~= "podman") then
