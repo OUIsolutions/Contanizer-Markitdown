@@ -27,7 +27,11 @@ image.add_comptime_command("apt-get install -y ffmpeg")
 image.add_comptime_command("git clone https://github.com/microsoft/markitdown.git")
 image.add_comptime_command("cd markitdown && pip3 install -e 'packages/markitdown[all]' --break-system-packages")
 -- Copy files
-
+local all_args = {"markitdown"}
+local size = argv.get_total_args_size()
+for i = 1, size do
+    all_args[#all_args + 1] = argv.get_arg_by_index(i)
+end
 -- Start container with specific configuration
 image.start({
     name="markitdown_container",
@@ -38,5 +42,5 @@ image.start({
     volumes = {
         { ".", "/app" }
     },
-    command = {"sh"}
+    command = all_args
 })
