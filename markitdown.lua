@@ -28,10 +28,14 @@ image.add_comptime_command("git clone https://github.com/microsoft/markitdown.gi
 image.add_comptime_command("cd markitdown && pip3 install -e 'packages/markitdown[all]' --break-system-packages")
 -- Copy files
 local all_args = {"markitdown"}
-local size = argv.get_total_args_size()
-for i = 1, size do
-    all_args[#all_args + 1] = argv.get_arg_by_index(i)
-end
+if action then 
+    all_args[#all_args + 1] = action
+end 
+while true do 
+    local arg = argv.get_next_unused()
+    if not arg then break end 
+    all_args[#all_args + 1] = arg
+end 
 -- Start container with specific configuration
 image.start({
     name="markitdown_container",
