@@ -37,6 +37,7 @@ while true do
     all_args[#all_args + 1] = arg
 end 
 local command = table.concat(all_args, " ")
+image.quiet = true
 -- Start container with specific configuration
 image.start({
     name="markitdown_container",
