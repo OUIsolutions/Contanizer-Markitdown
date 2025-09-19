@@ -2,7 +2,7 @@ Contanizer version of [markitdown](https://github.com/microsoft/markitdown)
 
 
 ## Installation
-
+Install Docker or Podman first.
 
 ### Step 1: Install VibeScript
 
@@ -22,3 +22,4 @@ curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.36.0/amal
 ```bash
 vibescript add_script --file https://github.com/OUIsolutions/Contanizer-Markitdown/releases/download/0.1.0/markitdown.lua  markitdown
 ```
+
