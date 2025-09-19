@@ -24,8 +24,9 @@ image.add_comptime_command("apk update")
 image.add_comptime_command("apk add git")
 image.add_comptime_command("apk add python3")
 image.add_comptime_command("apk add py3-pip")
+
 image.add_comptime_command("git clone https://github.com/microsoft/markitdown.git")
-image.add_comptime_command("cd markitdown && pip3 install -e 'packages/markitdown[all]'")
+image.add_comptime_command("cd markitdown && pip3 install -e 'packages/markitdown[all]' --break-system-packages")
 -- Copy files
 
 -- Start container with specific configuration
