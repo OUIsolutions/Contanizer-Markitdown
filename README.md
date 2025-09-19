@@ -23,3 +23,16 @@ curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.36.0/amal
 vibescript add_script --file https://github.com/OUIsolutions/Contanizer-Markitdown/releases/download/0.1.0/markitdown.lua  markitdown
 ```
 
+### Step 3: Configure your provider
+--- For Docker:
+```bash
+markitdown set_provider docker 
+```
+--- For Podman:
+```bash
+markitdown set_provider podman
+```
+than you can run markitdown with:
+```bash
+markitdown test.pdf > test.md
+```
