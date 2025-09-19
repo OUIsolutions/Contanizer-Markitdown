@@ -36,15 +36,15 @@ while true do
     if not arg then break end 
     all_args[#all_args + 1] = arg
 end 
+local command = table.concat(all_args, " ")
 -- Start container with specific configuration
 image.start({
     name="markitdown_container",
     flags = {
         "--workdir=/app",
-        "-it"
     },
     volumes = {
         { ".", "/app" }
     },
-    command = all_args
+    command = {command}
 })
